@@ -13,7 +13,7 @@
 </head>
 <body>
 <form action="/condiments/save" method="post">
-    <h2 style="margin-left: 40px">Sandwich Cocdiments</h2>
+    <h2 style="margin-left: 40px">Sandwich Condiments</h2>
     <label for="lecttuce">Lecttuce</label>
     <input type="checkbox" id="lecttuce" name="condiment" value="lecttuce">
     <label for="tomato">Tomato</label>

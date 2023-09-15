@@ -16,7 +16,7 @@ public class CondimentsController {
 
     @PostMapping("/save")
     public String save(RedirectAttributes redirectAttributes, @RequestParam(name = "condiment", required = false,
-            defaultValue = "0") String[] condiment) {
+            defaultValue = "Let your choice") String[] condiment) {
         redirectAttributes.addFlashAttribute("message", Arrays.toString(condiment));
         return "redirect:/condiments";
     }
