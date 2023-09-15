@@ -31,7 +31,7 @@ public class CalculatorController {
         }
         if (Objects.equals(calculate, "Division(/)")) {
             if (number2 == 0) {
-                redirectAttributes.addFlashAttribute("result1", "Can't divide by 0");
+                redirectAttributes.addFlashAttribute("error", "Can't divide by 0");
             } else {
                 redirectAttributes.addFlashAttribute("result", number1 / number2);
             }

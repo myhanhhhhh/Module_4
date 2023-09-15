@@ -25,7 +25,7 @@
     <input type="submit" name="calculate" value="Division(/)">
     <br><br>
     Result : <span style="color: green">${result}</span>
-    <span style="color: red">${result1}</span>
+    <span style="color: red">${error}</span>
 </form>
 </body>
 </html>
