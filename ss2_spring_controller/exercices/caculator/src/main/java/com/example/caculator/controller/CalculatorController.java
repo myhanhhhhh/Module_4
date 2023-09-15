@@ -11,9 +11,9 @@ import java.util.Objects;
 
 @Controller
 @RequestMapping("/calculator")
-public class CaculatorController {
+public class CalculatorController {
     @GetMapping("")
-    public String showList() {
+    public String showCalulate() {
         return "calculator";
     }
 
