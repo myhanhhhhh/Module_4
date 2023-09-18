@@ -1,6 +1,7 @@
 package com.example.sandwich.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -15,9 +16,8 @@ public class CondimentsController {
     }
 
     @PostMapping("/save")
-    public String save(RedirectAttributes redirectAttributes, @RequestParam(name = "condiment", required = false,
-            defaultValue = "Let your choice") String[] condiment) {
-        redirectAttributes.addFlashAttribute("message", Arrays.toString(condiment));
-        return "redirect:/condiments";
+    public String save(@RequestParam ("condiment") String [] condiment, Model model) {
+        model.addAttribute("condiment", Arrays.toString(condiment));
+        return "list";
     }
 }

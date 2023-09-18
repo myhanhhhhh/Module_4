@@ -23,7 +23,7 @@
     <label for="sprouts">Sprouts</label>
     <input type="checkbox" id="sprouts" name="condiment" value="sprouts">
     <br>
-    <p style="margin-left: 130px" >${message}</p>
+    <p style="margin-left: 130px" >${condiment}</p>
     <input style="margin-left: 130px" type="submit" value="submit">
 </form>
 </body>
