@@ -19,17 +19,17 @@ public class CalculatorController {
 
     @PostMapping("calculate")
     public String calculate(RedirectAttributes redirectAttributes, @RequestParam("calculate") String calculate,
-                             @RequestParam double number1, @RequestParam double number2) {
-        if (Objects.equals(calculate, "Addition(+)")) {
+                            @RequestParam double number1, @RequestParam double number2) {
+        if (calculate.equals("Addition(+)")) {
             redirectAttributes.addFlashAttribute("result", number1 + number2);
         }
-        if (Objects.equals(calculate, "Subtraction(-)")) {
+        if (calculate.equals("Subtraction(-)")) {
             redirectAttributes.addFlashAttribute("result", number1 - number2);
         }
-        if (Objects.equals(calculate, "Mutiplication(*)")) {
+        if (calculate.equals("Mutiplication(*)")) {
             redirectAttributes.addFlashAttribute("result", number1 * number2);
         }
-        if (Objects.equals(calculate, "Division(/)")) {
+        if (calculate.equals("Division(/)")) {
             if (number2 == 0) {
                 redirectAttributes.addFlashAttribute("error", "Can't divide by 0");
             } else {

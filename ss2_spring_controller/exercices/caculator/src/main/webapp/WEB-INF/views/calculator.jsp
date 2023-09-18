@@ -24,7 +24,7 @@
     <input type="submit" name="calculate" value="Mutiplication(*)">
     <input type="submit" name="calculate" value="Division(/)">
     <br><br>
-    Result : <span style="color: green">${result}</span>
+    Result: <span style="color: green">${result}</span>
     <span style="color: red">${error}</span>
 </form>
 </body>
