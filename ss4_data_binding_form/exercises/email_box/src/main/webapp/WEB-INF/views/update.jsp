@@ -14,7 +14,7 @@
 </head>
 <body>
 <h3>Setting</h3>
-<form:form modelAttribute="language" action="/language/edit" method="post">
+<form:form modelAttribute="language" action="/language/update" method="post">
     <form:hidden path="id"></form:hidden>
     Languages:
     <form:select path="name">

@@ -24,7 +24,7 @@ public class LanguageController {
     }
 
     @GetMapping("/update")
-    public String editForm(@RequestParam int id, Model model) {
+    public String updateForm(@RequestParam int id, Model model) {
         Language language = languageService.findID(id);
         List<String> stringList = languageService.displayName();
         List<Integer> integerList = languageService.displaySize();

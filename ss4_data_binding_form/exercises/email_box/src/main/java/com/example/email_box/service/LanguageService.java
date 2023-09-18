@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class LanguageService implements ILanguageService {
     @Autowired
-    private LanguageService languageRepo;
+    LanguageService languageRepo;
 
     @Override
     public List<Language> display() {

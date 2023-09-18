@@ -30,7 +30,7 @@
         <th>Page Size</th>
         <th>Spam Filter</th>
         <th>Signature</th>
-        <th>Edit</th>
+<%--        <th>Edit</th>--%>
     </tr>
     <c:forEach items="${languages}" var="language">
         <tr>
@@ -38,7 +38,7 @@
             <td>${language.size}</td>
             <td>${language.filter}</td>
             <td>${language.signature}</td>
-            <td><a role="button" href="/language/edit?id=${language.id}">Edit</a></td>
+<%--            <td><a role="button" href="/language/update?id=${language.id}">Update</a></td>--%>
         </tr>
     </c:forEach>
 </table>
