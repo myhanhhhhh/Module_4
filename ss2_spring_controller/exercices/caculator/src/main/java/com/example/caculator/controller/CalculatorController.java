@@ -20,16 +20,32 @@ public class CalculatorController {
     @PostMapping("calculate")
     public String calculate(RedirectAttributes redirectAttributes, @RequestParam("calculate") String calculate,
                             @RequestParam double number1, @RequestParam double number2) {
-        if (calculate.equals("Addition(+)")) {
+//        if (calculate.equals("Addition(+)")) {
+//            redirectAttributes.addFlashAttribute("result", number1 + number2);
+//        }
+//        if (calculate.equals("Subtraction(-)")) {
+//            redirectAttributes.addFlashAttribute("result", number1 - number2);
+//        }
+//        if (calculate.equals("Mutiplication(*)")) {
+//            redirectAttributes.addFlashAttribute("result", number1 * number2);
+//        }
+//        if (calculate.equals("Division(/)")) {
+//            if (number2 == 0) {
+//                redirectAttributes.addFlashAttribute("error", "Can't divide by 0");
+//            } else {
+//                redirectAttributes.addFlashAttribute("result", number1 / number2);
+//            }
+//        }
+        if ("Addition(+)".equals(calculate)) {
             redirectAttributes.addFlashAttribute("result", number1 + number2);
         }
-        if (calculate.equals("Subtraction(-)")) {
+        if ("Subtraction(-)".equals(calculate)) {
             redirectAttributes.addFlashAttribute("result", number1 - number2);
         }
-        if (calculate.equals("Mutiplication(*)")) {
+        if ("Mutiplication(*)".equals(calculate)) {
             redirectAttributes.addFlashAttribute("result", number1 * number2);
         }
-        if (calculate.equals("Division(/)")) {
+        if ("Division(/)".equals(calculate)) {
             if (number2 == 0) {
                 redirectAttributes.addFlashAttribute("error", "Can't divide by 0");
             } else {
