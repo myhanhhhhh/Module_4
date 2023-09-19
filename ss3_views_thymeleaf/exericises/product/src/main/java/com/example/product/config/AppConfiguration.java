@@ -1,4 +1,4 @@
-package com.example;
+package com.example.product.config;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -16,7 +16,7 @@ import org.thymeleaf.templatemode.TemplateMode;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.example")
+@ComponentScan("com.example.product")
 public class AppConfiguration extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
@@ -30,7 +30,7 @@ public class AppConfiguration extends WebMvcConfigurerAdapter implements Applica
     public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(applicationContext);
-        templateResolver.setPrefix("/WEB-INF/views");
+        templateResolver.setPrefix("/WEB-INF/views/");
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode(TemplateMode.HTML);
         templateResolver.setCharacterEncoding("UTF-8");
