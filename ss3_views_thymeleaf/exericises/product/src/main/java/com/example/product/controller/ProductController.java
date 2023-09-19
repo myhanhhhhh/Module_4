@@ -72,11 +72,11 @@ public class ProductController {
     @PostMapping("/search")
     public String search(@RequestParam String name, Model model) {
         Product product = productService.findByName(name);
-//        if (product == null) {
-//            model.addAttribute("mess", "Product don't exist");
-//        } else {
+        if (product == null) {
+            model.addAttribute("mess", "Product don't exist");
+        } else {
             model.addAttribute("product", product);
-//        }
+        }
         return "detail";
     }
 }
