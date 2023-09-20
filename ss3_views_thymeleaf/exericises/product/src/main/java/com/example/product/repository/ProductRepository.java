@@ -60,7 +60,7 @@ public class ProductRepository implements IProductRepository {
     @Override
     public Product findByName(String name) {
         for (Product product : productList) {
-            if (name.equals(product.getName())) {
+            if (product.getName().equals(name)) {
                 return product;
             }
         }

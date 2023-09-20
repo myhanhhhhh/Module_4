@@ -15,7 +15,7 @@ import java.util.List;
 @RequestMapping("/product")
 public class ProductController {
     @Autowired
-    IProductService productService;
+    private IProductService productService;
 
     @GetMapping("")
     public ModelAndView showList() {
@@ -31,7 +31,7 @@ public class ProductController {
     }
 
     @PostMapping("/create")
-    public String Create(@ModelAttribute Product product, RedirectAttributes redirectAttributes) {
+    public String create(@ModelAttribute Product product, RedirectAttributes redirectAttributes) {
         productService.add(product);
         redirectAttributes.addFlashAttribute("mess", "Created success");
         return "redirect:/product";
