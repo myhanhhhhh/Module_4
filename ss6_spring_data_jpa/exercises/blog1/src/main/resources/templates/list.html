@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border: 1px solid black;
+            width: 100%;
+            text-align: center;
+        }
+
+        tr, th, td {
+            border: 1px solid black;
+        }
+        .mess{
+            color: green;
+        }
+    </style>
+
+</head>
+<body>
+<h1 style="color: hotpink;text-align: center">Blog Sweets</h1>
+<a href="/blog/create"><button>Create</button></a><br><br>
+<!--<form action="/blog/search" method="post">-->
+<!--    <input type="text" name="name" placeholder="Let enter blog"/>-->
+<!--    <button type="submit">Search</button><br><br>-->
+<!--</form>-->
+<table>
+    <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Content</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="blog, status:${blogList}">
+        <td th:text="${status.count}"></td>
+        <td th:text="${blog.name}"></td>
+        <td><a th:href="@{/blog/detail/__${blog.id}__}"><button>Read Blog</button></a></td>
+        <td><a th:href="@{/blog/update(id=${blog.id})}"><button>Update</button></a></td>
+        <td><a th:href="@{/blog/delete(id=${blog.id})}"><button>Delete</button></a></td>
+    </tr>
+</table>
+<div class="mess" th:text="${mess}"></div>
+</body>
+</html>
