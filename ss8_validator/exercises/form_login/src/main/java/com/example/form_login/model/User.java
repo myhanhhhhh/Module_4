@@ -1,30 +1,46 @@
-package com.example.form_login.dto;
+package com.example.form_login.model;
 
-import javax.validation.constraints.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
-public class UserDto {
-    @NotEmpty(message = "Not Empty")
-    @Size(min = 5, max = 45, message = "5->45 character")
+@Entity
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String firstName;
-    @NotEmpty(message = "Not Empty")
-    @Size(min = 5, max = 45, message = "5->45 character")
+
     private String lastName;
-    @NotEmpty(message = "Not Empty")
-    @Pattern(regexp = "^0[0-9]{9}$", message = "Phone must have 10 number")
+
     private String phoneNumber;
-    @Min(value = 18, message = "Age > 18")
     private int age;
-    @Email
+
     private String email;
-    public UserDto() {
+
+    public User() {
     }
 
-    public UserDto(String firstName, String lastName, String phoneNumber, int age, String email) {
+    public User(int id, String firstName, String lastName, String phoneNumber, int age, String email) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.age = age;
         this.email = email;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {
