@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Form</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        th, td {
+        }
+    </style>
+
+</head>
+<body>
+<form action="/song/create" method="post" th:object="${songDto}">
+    <h3 style="margin-left: 50px">Create User</h3>
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}">
+                <small style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
+            </td>
+        </tr>
+        <tr>
+            <td>Singer:</td>
+            <td><input type="text" th:field="*{singer}">
+                <small style="color: red" th:if="${#fields.hasErrors('singer')}" th:errors="*{singer}"></small>
+            </td>
+        </tr>
+        <tr>
+            <td>Type:</td>
+            <td><input type="text" th:field="*{type}">
+                <small style="color: red" th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></small>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit">Save</button>
+            </td>
+            <td>
+                <button type="submit">Save</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
