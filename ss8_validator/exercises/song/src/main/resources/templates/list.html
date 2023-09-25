@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1 style="text-align: center">Song Management</h1>
-<a th:href="@{/song/create}" style="text-decoration: none">Add new song</a>
+<a th:href="@{/song/create}" style="text-decoration: none">Create song</a>
 
 
 <div>
@@ -37,7 +37,7 @@
     <td th:text="${song.name}"></td>
     <td th:text="${song.singer}"></td>
     <td th:text="${song.type}"></td>
-    <td><a th:href="@{/song/update(id=${song.id})}">Update</a></td>
+    <td><a th:href="@{/song/update(id=${song.id})}"><button>Update</button></a></td>
   </tr>
   </tbody>
 </table>

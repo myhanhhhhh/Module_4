@@ -38,35 +38,38 @@ public class SongController {
         new SongDto().validate(songDto, bindingResult);
         if (bindingResult.hasErrors()) {
             return "create";
+        } else {
+            Song song = new Song();
+            BeanUtils.copyProperties(songDto, song);
+            songService.add(song);
+            redirect.addFlashAttribute("mess", "Create successful");
+            return "redirect:/song";
         }
-        Song song = new Song();
-        BeanUtils.copyProperties(songDto, song);
-        songService.add(song);
-        redirect.addFlashAttribute("mess", "Create successful");
-        return "redirect:/song";
     }
 
     @GetMapping("/update/{id}")
-    public String showEdit(@RequestParam int id, Model model) {
+    public String showEdit(Model model, @RequestParam int id) {
         Song song = songService.findById(id);
-        if (song == null) {
+        SongDto songDto = new SongDto();
+        BeanUtils.copyProperties(song, songDto);
+        if (songDto == null) {
             model.addAttribute("mess", "Song don't exist");
         } else {
-            model.addAttribute("song", song);
+            model.addAttribute("songDto", songDto);
         }
         return "update";
 
     }
 
     @PostMapping("/update")
-    public String update(@Valid @ModelAttribute SongDto song, BindingResult bindingResult, RedirectAttributes redirect) {
-        new SongDto().validate(song, bindingResult);
+    public String update(@Valid @ModelAttribute SongDto songdto, BindingResult bindingResult, RedirectAttributes redirect) {
+        new SongDto().validate(songdto, bindingResult);
         if (bindingResult.hasErrors()) {
             return "create";
         }
-        Song song1 = new Song();
-        BeanUtils.copyProperties(song, song1);
-        songService.update(song1);
+        Song song = new Song();
+        BeanUtils.copyProperties(songdto, song);
+        songService.update(song);
         redirect.addFlashAttribute("mess", "Update successful");
         return "redirect:/song";
     }
