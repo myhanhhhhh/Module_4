@@ -2,63 +2,93 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Blog list</title>
-    <style>
-        table {
-            width: 100%;
-        }
-    </style>
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
-<th:block>
-    <span class="mess" th:text="${mess}"></span>
-</th:block>
-<p><a href="/blog/create">Create Blog</a></p>
 
-<form action="/blog">
-    <input id="search" type="text" th:value="${searchName}" name="searchName" placeholder="Enter name">
-    <button type="submit">Search</button>
-</form>
-<a href="/category">Category</a>
-<!--<ul>-->
-<!--    <li th:each="category : ${categories}" th:value="${category.idCategory}"-->
-<!--        th:text="${category.name}">-->
-<!--        <a th:href="@{blog/(id=${category.getIdCategory()})}"></a>-->
-<!--    </li>-->
-<!--</ul>-->
-
-<table border="1" style="border-collapse: collapse">
-    <tr>
-        <th>STT</th>
-        <th>Name</th>
-        <th>Time</th>
-        <th>Content</th>
-        <th>Category</th>
-        <th>Detail</th>
-        <th>Edit</th>
-        <th>Delete</th>
-    </tr>
-    <th:block th:each="blog,status : ${blogPage}">
-        <tr>
-            <td th:text="${status.count}"></td>
-            <td th:text="${blog.name}"></td>
-            <td th:text="${blog.formatDateWrite()}"></td>
-            <td th:text="${blog.content}"></td>
-            <td th:text="${blog.getCategory()}"></td>
-            <td><a th:href="@{/blog/detail/__${blog.id}__}">
-                <button>Read Blog</button>
-            </a></td>
-            <td><a th:href="@{/blog/update/__${blog.id}__}">
-                <button>Update</button>
-            </a></td>
-            <td><a th:href="@{/blog/delete(id=${blog.id})}">
-                <button>Delete</button>
-            </a></td>
-        </tr>
+<div class="row" style="width: 90%; margin: 5em">
+    <h1>List Blog</h1>
+    <form action="/blogs">
+        <div class="input-group mb-3" style="width: 30%">
+            <input type="text" class="form-control" placeholder="search" aria-label="Recipient's username"
+                   aria-describedby="button-addon2" name="searchTitle" th:value="${searchTitle}">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+        </div>
+        <p><a href="/blog/create">Create Blog</a></p>
+    </form>
+    <a href="/categories">Category</a>
+    <th:block th:if="${mess}">
+        <div class="alert alert-success" role="alert">
+            <span th:text="${mess}"></span>
+        </div>
     </th:block>
-</table>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">STT</th>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Time</th>
+            <th scope="col">Content</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="blog,status : ${blogPage}">
+            <tr>
+                <th th:text="${status.count}"></th>
+                <td th:text="${blog.name}"></td>
+                <td>
+                    <th:block th:each="categoryBlog : ${blog.category}">
+                        <a th:text="${categoryBlog.name}"></a>
+                    </th:block>
+                </td>
+                <td th:text="${blog.time}"></td>
+                <td th:text="${blog.content}"></td>
+                <td>
+                    <a class="btn btn-primary" th:href="@{/blogs/update(id=${blog.id})}">Edit</a>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            th:data-bs-target="'#exampleModal_' + ${blog.id}">
+                        Delete
+                    </button>
+                </td>
+                <!-- Modal -->
+                <div class="modal fade" th:id="'exampleModal_' + ${blog.id}" tabindex="-1"
+                     th:aria-labelledby="'exampleModalLabel_' + ${blog.id}" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" th:id="'exampleModalLabel_' + ${blog.id}">Delete Blog</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p th:text="'Sure to delete ' + ${blog.name}"></p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <form th:action="@{/blogs/delete/__${blog.id}__}" method="post">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
 <a th:if="${blogPage.hasPrevious()}" th:href="@{/blog(page=${blogPage.number-1},searchName=${searchName})}">Previous</a>
 <span th:text="${blogPage.number+1}"></span>/<span th:text="${blogPage.totalPages}"></span>
 <a th:if="${blogPage.hasNext()}" th:href="@{/blog(page=${blogPage.number+1},searchName=${searchName})}">Next</a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
 </body>
 </html>
