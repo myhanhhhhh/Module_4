@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Controller
-@RequestMapping("/assignment")
+@RequestMapping("/assignmentt")
 public class AssignmentController {
     @ModelAttribute("assignmentDto")
     public AssignmentDto newAssignmentDto(){
