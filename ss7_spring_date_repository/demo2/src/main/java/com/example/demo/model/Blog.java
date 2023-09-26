@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -12,6 +13,7 @@ public class Blog {
     private String name;
     private String time;
     @Column(columnDefinition = "text")
+    @NotEmpty(message = "Not empty")
     private String content;
 
     @ManyToOne

@@ -54,7 +54,7 @@ public class BlogController {
     }
 
     @GetMapping("update")
-    public String editForm(Model model, @PathVariable int id) {
+    public String updateForm(Model model, @PathVariable int id) {
         Blog blog = blogService.findById(id);
         List<Category> categories = categoryService.findAll();
         model.addAttribute("categories", categories);
@@ -72,7 +72,7 @@ public class BlogController {
     }
 
     @GetMapping("/delete")
-    public String deleteForm(@RequestParam int id, RedirectAttributes redirectAttributes) {
+    public String deleteBlog(@RequestParam int id, RedirectAttributes redirectAttributes) {
         Blog blog = blogService.findById(id);
         if (blog == null) {
             redirectAttributes.addFlashAttribute("mess", "Blog don't exist");
