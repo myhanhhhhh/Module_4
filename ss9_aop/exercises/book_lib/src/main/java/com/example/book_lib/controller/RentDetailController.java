@@ -32,9 +32,8 @@ public class RentDetailController {
 
     @PostMapping("/rent")
     public String rentBook(RedirectAttributes redirectAttributes, RentDetail rentDetail, @RequestParam int code) {
-        System.out.println(rentDetail.getBook());
-        rentDetailService.add(rentDetail.getBook().getId(), code, rentDetail.getCustomerName());
         Book book = rentDetail.getBook();
+        rentDetailService.add(book.getId(), code, rentDetail.getCustomerName());
         int quantity = book.getQuantity() - 1;
         book.setQuantity(quantity);
         bookService.update(book, book.getId());
