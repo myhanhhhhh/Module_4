@@ -24,7 +24,7 @@ public class RentDetailController {
         RentDetail rentDetail = new RentDetail();
         Book book = bookService.finById(id);
         rentDetail.setBook(book);
-        String code = book.generateRandomCode();
+        String code = book.RandomCode();
         model.addAttribute("code", code);
         model.addAttribute("rentDetail", rentDetail);
         return "rent";
