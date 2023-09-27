@@ -30,22 +30,6 @@ public class RentDetailController {
         return "rent";
     }
 
-//    @PostMapping("/rent")
-//    public String rentBook(RedirectAttributes redirectAttributes, @RequestParam String customerName, @RequestParam int code) {
-//        RentDetail rentDetail = rentDetailService.findByCode(code);
-//        if (rentDetail != null && rentDetail.getBook().getQuantity() > 0) {
-//            Book book = rentDetail.getBook();
-//            int quantity = book.getQuantity() - 1;
-//            book.setQuantity(quantity);
-//            bookService.update(book);
-//            redirectAttributes.addFlashAttribute("mess", "Rent success");
-//        } else {
-//            redirectAttributes.addFlashAttribute("mess", "Rent failed. Book not available.");
-//        }
-//        return "redirect:/book";
-//    }
-
-
     @PostMapping("/rent")
     public String rentBook(RedirectAttributes redirectAttributes, RentDetail rentDetail, @RequestParam int code) {
         System.out.println(rentDetail.getBook());
@@ -53,8 +37,8 @@ public class RentDetailController {
         Book book = rentDetail.getBook();
         int quantity = book.getQuantity() - 1;
         book.setQuantity(quantity);
-        bookService.update(book,book.getId());
-        redirectAttributes.addFlashAttribute("mess", "Rent success");
+        bookService.update(book, book.getId());
+        redirectAttributes.addFlashAttribute("mess", "Rented success");
         return "redirect:/book";
     }
 
@@ -66,7 +50,7 @@ public class RentDetailController {
 
     @GetMapping("/payBack")
     public String showPayBack() {
-        return "rollBack";
+        return "payBack";
     }
 
     @PostMapping("/payBack")
@@ -75,14 +59,15 @@ public class RentDetailController {
         if (rentDetail != null) {
             int id = rentDetail.getId();
             rentDetailService.delete(id);
-            int quantity = rentDetail.getBook().getQuantity() + 1;
-            rentDetail.getBook().setQuantity(quantity);
-            bookService.update(rentDetail.getBook(), rentDetail.getBook().getId());
-            redirectAttributes.addFlashAttribute("mess", "Pay back success");
+            Book book = rentDetail.getBook();
+            int quantity = book.getQuantity() + 1;
+            book.setQuantity(quantity);
+            bookService.update(book, book.getId());
+            redirectAttributes.addFlashAttribute("mess", "Paid successfully");
             return "redirect:/book";
         }
         model.addAttribute("code", code);
-        return "rollBack";
+        return "payBack";
     }
 
 }
