@@ -6,15 +6,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <style>
-        #message {
+        .mess {
             color: green;
         }
     </style>
 </head>
 <body>
-<span id="message" th:text="${mess}"></span>
-<a class="btn btn-primary" href="/book">Back to list</a>
+<span class="mess" th:text="${mess}"></span>
+<a class="btn btn-outline-primary" href="/book">Back to list</a>
 <table class="table table-hover">
+    <h3 style="text-align: center">Rent History</h3>
     <tr>
         <th>STT</th>
         <th>Book</th>

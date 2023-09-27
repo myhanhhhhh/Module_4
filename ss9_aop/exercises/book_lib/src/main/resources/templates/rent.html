@@ -6,37 +6,36 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <style>
-        .rent{
+        #rent {
             text-align: center;
         }
     </style>
 </head>
 <body>
-<a class="btn btn-primary" href="/book">Back to list</a>
+<a class="btn btn-outline-primary" href="/book">Back to list</a>
 <form action="/rent/rent" method="post" th:object="${rentDetail}">
     <input type="hidden" th:value="${code}" name="code">
     <input type="hidden" th:field="*{id}" name="id">
     <input type="hidden" th:field="*{book}" name="book">
-           <h3 style="text-align: center;">Rent infomation</h3>
-        <table class="table table-hover">
-            <tr>
-                <th>Name of book</th>
-                <th>Code</th>
-                <th>Name Customer</th>
-            </tr>
-            <tr>
-                <td th:text="${rentDetail.book.name}"></td>
-                <td th:text="${code}"></td>
-                <td>
-                    <input th:field="*{customerName}">
-                </td>
-            </tr>
-        </table>
-    <div class="rent">
-        <button  type="submit" class="btn btn-primary">Rent</button>
+    <h3 style="text-align: center;">Rent infomation</h3>
+    <table class="table table-hover">
+        <tr>
+            <th>Name of book</th>
+            <th>Code</th>
+            <th>Name Customer</th>
+        </tr>
+        <tr>
+            <td th:text="${rentDetail.book.name}"></td>
+            <td th:text="${code}"></td>
+            <td>
+                <input th:field="*{customerName}">
+            </td>
+        </tr>
+    </table>
+    <div id="rent">
+        <button type="submit" class="btn btn-outline-primary">Rent</button>
     </div>
 </form>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
