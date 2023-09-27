@@ -38,7 +38,7 @@ public class RentDetailController {
         int quantity = book.getQuantity() - 1;
         book.setQuantity(quantity);
         bookService.update(book, book.getId());
-        redirectAttributes.addFlashAttribute("mess", "Rented success");
+        redirectAttributes.addFlashAttribute("mess", "Rented successfully");
         return "redirect:/book";
     }
 
@@ -65,9 +65,9 @@ public class RentDetailController {
             bookService.update(book, book.getId());
             redirectAttributes.addFlashAttribute("mess", "Paid successfully");
             return "redirect:/book";
+        }else {
+            model.addAttribute("code", code);
+            return "payBack";
         }
-        model.addAttribute("code", code);
-        return "payBack";
     }
-
 }

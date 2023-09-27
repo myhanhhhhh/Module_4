@@ -11,6 +11,6 @@ import javax.transaction.Transactional;
 public interface IBookingRepository extends JpaRepository<Book, Integer> {
     @Transactional
     @Modifying
-    @Query(value = "update book set quantity = :#{#book.quantity} where id like :id", nativeQuery = true)
-    void update(Book book, @Param("id") int id);
+    @Query(value = "update book set quantity = :#{#book.quantity} where id like :bookId", nativeQuery = true)
+    void update(Book book, @Param("bookId") int id);
 }

@@ -18,6 +18,6 @@ public class BookController {
     @GetMapping("")
     public String showList(Model model) {
         model.addAttribute("books", bookService.findAll());
-        return "books";
+        return "book";
     }
 }

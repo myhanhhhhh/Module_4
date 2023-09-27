@@ -30,7 +30,7 @@
       <td th:text="${status.count}"></td>
       <td th:text="${book.name}"></td>
       <td th:text="${book.quantity}"></td>
-      <td><a th:hidden="${book.quantity<=0}" role="button" class="btn btn-primary"
+      <td><a th:hidden="${book.quantity<=0}" class="btn btn-primary"
              th:href="@{/rent/rent/__${book.getId()}__}">Rent</a>
       </td>
     </tr>
