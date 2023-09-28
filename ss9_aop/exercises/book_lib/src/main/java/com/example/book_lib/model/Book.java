@@ -16,7 +16,7 @@ public class Book {
     @OneToMany(mappedBy = "book")
     private Set<RentDetail> rentDetailSet;
 
-    public String RandomCode() {
+    public String randomCode() {
         return String.valueOf((int)(Math.random() * 100000));
     }
 
