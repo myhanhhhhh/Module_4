@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class Logger {
-    private static int count;
+    private int count=0;
 
     @After("execution(* com.example.book_lib.controller.BookController.*(..))")
     public void count() {
@@ -18,6 +18,6 @@ public class Logger {
 
     @After("execution(* com.example.book_lib.controller.BookController.*(..))")
     public void writeLog(JoinPoint joinPoint) {
-        System.out.println(joinPoint.getSignature().getName());
+        System.out.println("Method called: "+ joinPoint.getSignature().getName());
     }
 }

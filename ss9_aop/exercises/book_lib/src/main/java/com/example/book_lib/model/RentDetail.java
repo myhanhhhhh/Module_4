@@ -9,10 +9,8 @@ public class RentDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotEmpty(message = "Not Empty")
     @Column(name = "code", unique = true)
     private int code;
-    @NotEmpty(message = "Not Empty")
     private String customerName;
 
     @ManyToOne
