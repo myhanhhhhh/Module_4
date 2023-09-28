@@ -64,8 +64,8 @@ public class RentDetailController {
             bookService.update(book, book.getId());
             redirectAttributes.addFlashAttribute("mess", "Paid successfully");
             return "redirect:/book";
-        }else {
-            model.addAttribute("code", code);
+        } else {
+            model.addAttribute("mess",  "Not found: " + code);
             return "payBack";
         }
     }
