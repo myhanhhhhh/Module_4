@@ -31,4 +31,26 @@ public class BookService implements IBookService {
     public void update(Book book, int id) {
         bookingRepository.update(book, id);
     }
+
+    @Override
+    public Book rentBook(int id) {
+        Book book = bookingRepository.findById(id).orElse(null);
+        if (book != null && book.getQuantity() > 0) {
+            book.setQuantity(book.getQuantity() - 1);
+            bookingRepository.save(book);
+            return book;
+        }
+        return null;
+    }
+
+    @Override
+    public Book payBook(int id) {
+        Book book = bookingRepository.findById(id).orElse(null);
+        if (book != null) {
+            book.setQuantity(book.getQuantity() + 1);
+            bookingRepository.save(book);
+            return book;
+        }
+        return null;
+    }
 }

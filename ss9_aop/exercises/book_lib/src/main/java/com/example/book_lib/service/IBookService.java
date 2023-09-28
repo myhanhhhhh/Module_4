@@ -12,4 +12,8 @@ public interface IBookService {
     void add(Book book);
 
     void update(Book book, int id);
+
+    Book rentBook(int id);
+
+    Book payBook(int id);
 }

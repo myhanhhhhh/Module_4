@@ -8,12 +8,12 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class Logger {
-    public static int count = 0;
+    private static int count;
 
     @After("execution(* com.example.book_lib.controller.BookController.*(..))")
     public void count() {
         count++;
-        System.out.println("Number of book changes " + count);
+        System.out.println("Number of access " + count);
     }
 
     @After("execution(* com.example.book_lib.controller.BookController.*(..))")

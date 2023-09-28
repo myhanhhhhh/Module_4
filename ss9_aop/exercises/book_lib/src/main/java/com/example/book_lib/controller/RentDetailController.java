@@ -32,11 +32,13 @@ public class RentDetailController {
 
     @PostMapping("/rent")
     public String rentBook(RedirectAttributes redirectAttributes, RentDetail rentDetail, @RequestParam int code) {
-        Book book = rentDetail.getBook();
-        rentDetailService.add(book.getId(), code, rentDetail.getCustomerName());
-        int quantity = book.getQuantity() - 1;
-        book.setQuantity(quantity);
-        bookService.update(book, book.getId());
+        Book book = bookService.rentBook(rentDetail.getBook().getId());
+        if (book != null) {
+            String code1 = book.RandomCode();
+            rentDetail.setCode(Integer.parseInt(code1));
+            rentDetailService.add(book.getId(), code, rentDetail.getCustomerName());
+            bookService.update(book, book.getId());
+        }
         redirectAttributes.addFlashAttribute("mess", "Rented successfully");
         return "redirect:/book";
     }
@@ -58,10 +60,7 @@ public class RentDetailController {
         if (rentDetail != null) {
             int id = rentDetail.getId();
             rentDetailService.delete(id);
-            Book book = rentDetail.getBook();
-            int quantity = book.getQuantity() + 1;
-            book.setQuantity(quantity);
-            bookService.update(book, book.getId());
+            bookService.payBook(rentDetail.getId());
             redirectAttributes.addFlashAttribute("mess", "Paid successfully");
             return "redirect:/book";
         } else {
