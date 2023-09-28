@@ -4,11 +4,16 @@ import com.example.book_lib.model.Book;
 import com.example.book_lib.model.RentDetail;
 import com.example.book_lib.service.IBookService;
 import com.example.book_lib.service.IRentDetailService;
+import com.example.book_lib.utils.BookNotFoundException;
+import com.example.book_lib.utils.CodeNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.transaction.Transactional;
 
 
 @Controller
@@ -30,14 +35,21 @@ public class RentDetailController {
         return "rent";
     }
 
+    @Transactional
     @PostMapping("/rent")
     public String rentBook(RedirectAttributes redirectAttributes, RentDetail rentDetail, @RequestParam int code) {
-        Book book = bookService.rentBook(rentDetail.getBook().getId());
-        if (book != null) {
-            String code1 = book.RandomCode();
-            rentDetail.setCode(Integer.parseInt(code1));
-            rentDetailService.add(book.getId(), code, rentDetail.getCustomerName());
-            bookService.update(book, book.getId());
+        try {
+            Book book = bookService.rentBook(rentDetail.getBook().getId());
+            if (book != null) {
+                String code1 = book.RandomCode();
+                rentDetail.setCode(Integer.parseInt(code1));
+                rentDetailService.add(book.getId(), code, rentDetail.getCustomerName());
+                bookService.update(book, book.getId());
+            } else {
+                throw new BookNotFoundException("Rented failed");
+            }
+        } catch (BookNotFoundException e) {
+            redirectAttributes.addFlashAttribute("mess", "Rented failed");
         }
         redirectAttributes.addFlashAttribute("mess", "Rented successfully");
         return "redirect:/book";
@@ -54,18 +66,23 @@ public class RentDetailController {
         return "payBack";
     }
 
+    @Transactional
     @PostMapping("/payBack")
     public String payBack(@RequestParam int code, RedirectAttributes redirectAttributes, Model model) {
         RentDetail rentDetail = rentDetailService.findByCode(code);
-        if (rentDetail != null) {
-            int id = rentDetail.getId();
-            rentDetailService.delete(id);
-            bookService.payBook(rentDetail.getId());
-            redirectAttributes.addFlashAttribute("mess", "Paid successfully");
-            return "redirect:/book";
-        } else {
-            model.addAttribute("mess",  "Not found: " + code);
-            return "payBack";
+        try {
+            if (rentDetail != null) {
+                int id = rentDetail.getId();
+                rentDetailService.delete(id);
+                bookService.payBook(rentDetail.getId());
+                redirectAttributes.addFlashAttribute("mess", "Paid successfully");
+                return "redirect:/book";
+            } else {
+                throw new CodeNotFoundException("Code not found");
+            }
+        } catch (CodeNotFoundException e) {
+            model.addAttribute("mess", "Not found: " + code);
         }
+        return "payBack";
     }
 }

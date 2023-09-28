@@ -8,6 +8,8 @@ public class RentDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "code", unique = true)
     private int code;
     private String customerName;
 
