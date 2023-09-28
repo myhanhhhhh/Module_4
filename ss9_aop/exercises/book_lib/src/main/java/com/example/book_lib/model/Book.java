@@ -2,6 +2,8 @@ package com.example.book_lib.model;
 
 import javax.persistence.Entity;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 
@@ -13,12 +15,10 @@ public class Book {
     private String name;
     private int quantity;
 
+
     @OneToMany(mappedBy = "book")
     private Set<RentDetail> rentDetailSet;
 
-    public String randomCode() {
-        return String.valueOf((int)(Math.random() * 100000));
-    }
 
     public Book() {
     }

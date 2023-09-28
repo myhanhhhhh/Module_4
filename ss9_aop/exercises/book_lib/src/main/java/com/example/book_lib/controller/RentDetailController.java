@@ -2,16 +2,17 @@ package com.example.book_lib.controller;
 
 import com.example.book_lib.model.Book;
 import com.example.book_lib.model.RentDetail;
+import com.example.book_lib.service.BookService;
 import com.example.book_lib.service.IBookService;
 import com.example.book_lib.service.IRentDetailService;
 import com.example.book_lib.utils.BookNotFoundException;
 import com.example.book_lib.utils.CodeNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 import javax.transaction.Transactional;
 
@@ -29,7 +30,7 @@ public class RentDetailController {
         RentDetail rentDetail = new RentDetail();
         Book book = bookService.finById(id);
         rentDetail.setBook(book);
-        String code = book.randomCode();
+        String code = BookService.randomCode();
         model.addAttribute("code", code);
         model.addAttribute("rentDetail", rentDetail);
         return "rent";
@@ -41,7 +42,7 @@ public class RentDetailController {
         try {
             Book book = bookService.rentBook(rentDetail.getBook().getId());
             if (book != null) {
-                String code1 = book.randomCode();
+                String code1 = BookService.randomCode();
                 rentDetail.setCode(Integer.parseInt(code1));
                 rentDetailService.add(book.getId(), code, rentDetail.getCustomerName());
                 bookService.update(book, book.getId());

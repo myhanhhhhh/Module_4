@@ -5,6 +5,7 @@ import com.example.book_lib.repository.IBookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -53,4 +54,19 @@ public class BookService implements IBookService {
         }
         return null;
     }
+
+    private static List<String> usedCode = new ArrayList<>();
+
+    public static String randomCode() {
+        StringBuilder code = new StringBuilder();
+        do {
+            code.setLength(0);
+            for (int i = 0; i < 5; i++) {
+                code.append((int) (Math.random() * 9));
+            }
+        } while (usedCode.contains(code.toString()));
+        usedCode.add(code.toString());
+        return code.toString();
+    }
+
 }
