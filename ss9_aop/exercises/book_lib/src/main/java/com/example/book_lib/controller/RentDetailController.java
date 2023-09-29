@@ -40,11 +40,11 @@ public class RentDetailController {
 
     @Transactional
     @PostMapping("/rent")
-    public String rentBook(RedirectAttributes redirectAttributes, @Valid RentDetail rentDetail, @RequestParam int code,
-                           BindingResult bindingResult) {
-        if(bindingResult.hasErrors()){
-            return "rent";
-        }
+    public String rentBook(RedirectAttributes redirectAttributes, RentDetail rentDetail, @RequestParam int code
+                           ) {
+//        if(bindingResult.hasErrors()){
+//            return "rent";
+//        }
         try {
             Book book = bookService.rentBook(rentDetail.getBook().getId());
             if (book != null) {
@@ -56,7 +56,7 @@ public class RentDetailController {
                 throw new BookNotFoundException("Rented failed");
             }
         } catch (BookNotFoundException e) {
-            redirectAttributes.addFlashAttribute("mess", "Rented failed");
+            redirectAttributes.addFlashAttribute("mess", "Rented fail");
         }
         redirectAttributes.addFlashAttribute("mess", "Rented successfully");
         return "redirect:/book";

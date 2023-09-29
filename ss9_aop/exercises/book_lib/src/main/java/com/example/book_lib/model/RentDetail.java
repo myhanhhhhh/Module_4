@@ -9,7 +9,7 @@ public class RentDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "code", unique = true)
+    @Column(name = "code", unique = true, nullable = false)
     private int code;
     @NotEmpty(message = "Not empty")
     private String customerName;
