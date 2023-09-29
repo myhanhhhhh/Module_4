@@ -124,7 +124,7 @@ public class BlogController {
     @PostMapping("/editCategory")
     public String editBlogCate(Model model, Category category) {
         categoryService.edit(category, category.getIdCategory());
-        model.addAttribute("message", "Edited Successfully");
+        model.addAttribute("message", "Updated Successfully");
         return "/blog/category/edit";
     }
 
