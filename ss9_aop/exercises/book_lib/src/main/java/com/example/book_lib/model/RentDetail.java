@@ -11,7 +11,10 @@ public class RentDetail {
     private int id;
     @Column(name = "code", unique = true)
     private int code;
+    @NotEmpty(message = "Not empty")
     private String customerName;
+    @Column(columnDefinition = "default 0")
+    private int status = 0;
 
     @ManyToOne
     @JoinColumn(name = "book_id", referencedColumnName = "id")
@@ -25,17 +28,27 @@ public class RentDetail {
         this.book = book;
     }
 
-    public RentDetail(int code, String customerName, Book book) {
+    public RentDetail(int code, String customerName, Book book, int status) {
         this.code = code;
         this.customerName = customerName;
         this.book = book;
+        this.status = status;
     }
 
-    public RentDetail(int id, int code, String customerName, Book book) {
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public RentDetail(int id, int code, String customerName, Book book, int status) {
         this.id = id;
         this.code = code;
         this.customerName = customerName;
         this.book = book;
+        this.status = status;
     }
 
     public int getId() {

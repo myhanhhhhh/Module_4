@@ -21,6 +21,7 @@
         <th>Book</th>
         <th>Customer</th>
         <th>Code</th>
+        <th>Status</th>
     </tr>
     <th:block th:each="order,status : ${rentDetail}">
         <tr>
@@ -28,6 +29,10 @@
             <td th:text="${order.book.getName()}"></td>
             <td th:text="${order.code}"></td>
             <td th:text="${order.customerName}"></td>
+            <td th:switch="${order.status}">
+                <span th:case="0">Not yet</span>
+                <span th:case="1">Done</span>
+            </td>
         </tr>
     </th:block>
 </table>

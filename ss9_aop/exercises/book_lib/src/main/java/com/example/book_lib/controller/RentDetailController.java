@@ -10,11 +10,13 @@ import com.example.book_lib.utils.CodeNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 
 
 @Controller
@@ -38,7 +40,11 @@ public class RentDetailController {
 
     @Transactional
     @PostMapping("/rent")
-    public String rentBook(RedirectAttributes redirectAttributes, RentDetail rentDetail, @RequestParam int code) {
+    public String rentBook(RedirectAttributes redirectAttributes, @Valid RentDetail rentDetail, @RequestParam int code,
+                           BindingResult bindingResult) {
+        if(bindingResult.hasErrors()){
+            return "rent";
+        }
         try {
             Book book = bookService.rentBook(rentDetail.getBook().getId());
             if (book != null) {
@@ -73,9 +79,9 @@ public class RentDetailController {
         RentDetail rentDetail = rentDetailService.findByCode(code);
         try {
             if (rentDetail != null) {
-                int id = rentDetail.getId();
-                rentDetailService.delete(id);
+                rentDetail.setStatus(1);
                 bookService.payBook(rentDetail.getBook().getId());
+                bookService.update(rentDetail.getBook(), rentDetail.getBook().getId());
                 redirectAttributes.addFlashAttribute("mess", "Paid successfully");
                 return "redirect:/book";
             } else {
