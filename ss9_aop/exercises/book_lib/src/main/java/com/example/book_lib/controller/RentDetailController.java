@@ -75,7 +75,7 @@ public class RentDetailController {
             if (rentDetail != null) {
                 int id = rentDetail.getId();
                 rentDetailService.delete(id);
-                bookService.payBook(rentDetail.getId());
+                bookService.payBook(rentDetail.getBook().getId());
                 redirectAttributes.addFlashAttribute("mess", "Paid successfully");
                 return "redirect:/book";
             } else {
