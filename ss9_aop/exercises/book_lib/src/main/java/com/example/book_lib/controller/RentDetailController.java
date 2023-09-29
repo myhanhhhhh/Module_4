@@ -40,11 +40,11 @@ public class RentDetailController {
 
     @Transactional
     @PostMapping("/rent")
-    public String rentBook(RedirectAttributes redirectAttributes, RentDetail rentDetail, @RequestParam int code
-                           ) {
-//        if(bindingResult.hasErrors()){
-//            return "rent";
-//        }
+    public String rentBook(@Valid RedirectAttributes redirectAttributes, RentDetail rentDetail, @RequestParam int code,
+                           BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "rent";
+        }
         try {
             Book book = bookService.rentBook(rentDetail.getBook().getId());
             if (book != null) {
@@ -75,7 +75,11 @@ public class RentDetailController {
 
     @Transactional
     @PostMapping("/payBack")
-    public String payBack(@RequestParam int code, RedirectAttributes redirectAttributes, Model model) {
+    public String payBack(@Valid @RequestParam int code, RedirectAttributes redirectAttributes, Model model,
+                          BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "payBack";
+        }
         RentDetail rentDetail = rentDetailService.findByCode(code);
         try {
             if (rentDetail != null) {

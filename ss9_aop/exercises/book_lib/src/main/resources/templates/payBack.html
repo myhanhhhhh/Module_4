@@ -16,6 +16,7 @@
 <form action="/rent/payBack" method="post">
     <h3>Pay Book Back</h3>
     <input type="number" placeholder="Enter code" name="code" th:value="${code}">
+    <small styl e="color: red" th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></small>
     <button type="submit" class="btn btn-outline-primary">Pay back</button>
     <div class="mess" th:text="${mess}"></div>
 </form>
