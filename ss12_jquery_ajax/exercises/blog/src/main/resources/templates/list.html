@@ -18,14 +18,14 @@
 <a href="/blog/category">Category</a>
 
 
-<a th:href="@{/blog(id=${category.getIdCategory()})}" th:each="category : ${categories}"
-   th:value="${category.idCategory}" th:text="${category.name}"></a>
+<a th:href="@{/blog(id=${category.getId()})}" th:each="category : ${categories}"
+   th:value="${category.id}" th:text="${category.name}"></a>
 
 
 <table border="1" style="border-collapse: collapse">
     <tr>
         <th>STT</th>
-        <th>Tittle</th>
+        <th>Name</th>
         <th>Category</th>
         <th>Description</th>
         <th>Detail</th>
