@@ -13,13 +13,13 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/api/blog/category")
+@RequestMapping("/api/category")
 public class RestCategoryController {
     @Autowired
     private ICategoryService categoryService;
     @Autowired
     private IBlogService blogService;
-    @GetMapping("/category")
+    @GetMapping("")
     public ResponseEntity<List<Category>> categoryList() {
         List<Category> categories = categoryService.findAll();
         if (categories.isEmpty()) {

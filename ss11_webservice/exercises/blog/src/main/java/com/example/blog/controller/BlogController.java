@@ -43,7 +43,7 @@ public class BlogController {
     }
 
     @GetMapping("/create")
-    public String ShowFormCreate(Model model) {
+    public String showFormCreate(Model model) {
         List<Category> categories = categoryService.findAll();
         model.addAttribute("categories", categories);
         model.addAttribute("blog", new Blog());
@@ -57,7 +57,7 @@ public class BlogController {
     }
 
     @GetMapping("/edit/{id}")
-    public String ShowFormEdit(Model model, @PathVariable int id) {
+    public String showFormEdit(Model model, @PathVariable int id) {
         Blog blog = blogService.findById(id);
         List<Category> categories = categoryService.findAll();
         model.addAttribute("categories", categories);
@@ -74,7 +74,7 @@ public class BlogController {
         return "/blog/edit";
     }
     @GetMapping("/delete/{id}")
-    public String ShowFormDelete(Model model, @PathVariable int id) {
+    public String showFormDelete(Model model, @PathVariable int id) {
         Blog blog = blogService.findById(id);
         model.addAttribute("blog", blog);
         return "/blog/delete";
