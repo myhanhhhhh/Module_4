@@ -11,10 +11,12 @@ import java.util.Set;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column( nullable = false)
     private int id;
+    @Column( nullable = false)
     private String name;
+    @Column( nullable = false)
     private int quantity;
-
 
     @OneToMany(mappedBy = "book")
     private Set<RentDetail> rentDetailSet;

@@ -1,6 +1,5 @@
 package com.example.book_lib.repository;
 
-import com.example.book_lib.model.Book;
 import com.example.book_lib.model.RentDetail;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
