@@ -1,4 +1,4 @@
-package com.example.blog.model;
+package com.example.demo.model;
 
 import javax.persistence.*;
 
@@ -63,5 +63,13 @@ public class Blog {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

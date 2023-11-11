@@ -36,11 +36,11 @@ public interface IBlogRepository extends JpaRepository<Blog, Integer> {
     void edit(@Param("description") String description, @Param("name") String name, @Param("id") int id, @Param("id1") int id1);
 
     @Query(value = "select * from blog where name like :name", nativeQuery = true)
-    Page<Blog> findBlogByName(Pageable pageable, @Param("name") String searchName);
+    Page<Blog> findBlogByNameContaining(Pageable pageable, @Param("name") String searchName);
 
     @Query(value = "select * from blog where id_category =:id", nativeQuery = true)
     List<Blog> findByCategory(@Param("id") int id);
+
     @Query(value = "select * from blog", nativeQuery = true)
     Page<Blog> findAllAjax(Pageable pageable);
-
 }

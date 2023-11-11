@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0069ddb0-72a5-41ce-8ed7-9e09e1ba5e31" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../blog1/src/main/java/com/example/blog1/controller/BlogController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog1/src/main/java/com/example/blog1/model/Blog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog1/src/main/java/com/example/blog1/repository/IBlogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog1/src/main/java/com/example/blog1/service/BlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog1/src/main/java/com/example/blog1/service/IBlogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blog1/src/main/resources/templates/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../demo_spring_mvc/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss1_spring_mvc/exercises/dictionary/src/main/webapp/WEB-INF/views/searchForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_spring_mvc/exercises/dictionary/src/main/webapp/WEB-INF/views/searchForm.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/exercices/sandwich/src/main/webapp/WEB-INF/applicationContext.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/exercices/sandwich/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/exercices/sandwich/src/main/webapp/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_grandle/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_grandle/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_grandle/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_grandle/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_grandle/src/main/java/com/example/email_grandle/controller/EmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_grandle/src/main/java/com/example/email_grandle/controller/EmailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_grandle/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_grandle/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_grandle/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_grandle/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_grandle/src/main/webapp/WEB-INF/views/success.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_grandle/src/main/webapp/WEB-INF/views/success.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_grandle/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_grandle/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_maven/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_maven/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_maven/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_maven/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_maven/src/main/java/com/example/email_maven/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_maven/src/main/java/com/example/email_maven/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_maven/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_maven/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_maven/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_maven/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_maven/src/main/webapp/WEB-INF/views/success.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_maven/src/main/webapp/WEB-INF/views/success.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_maven/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/email_maven/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/time_gradle/src/main/java/com/example/time_gradle/controller/TimeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/time_gradle/src/main/java/com/example/time_gradle/controller/TimeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/time_gradle/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss2_spring_controller/practice/time_gradle/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss4_data_binding_form/exercises/email_box/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss4_data_binding_form/exercises/email_box/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss4_data_binding_form/practice/form_data_binding/src/main/java/com/example/form_data_binding/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss4_data_binding_form/practice/form_data_binding/src/main/java/com/example/form_data_binding/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss4_data_binding_form/practice/form_data_binding/src/main/java/com/example/form_data_binding/model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss4_data_binding_form/practice/form_data_binding/src/main/java/com/example/form_data_binding/model/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss4_data_binding_form/practice/form_data_binding/src/main/webapp/WEB-INF/dispatcher-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss4_data_binding_form/practice/form_data_binding/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss4_data_binding_form/practice/form_data_binding/src/main/webapp/WEB-INF/views/create.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss4_data_binding_form/practice/form_data_binding/src/main/webapp/WEB-INF/views/create.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss4_data_binding_form/practice/form_data_binding/src/main/webapp/WEB-INF/views/info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss4_data_binding_form/practice/form_data_binding/src/main/webapp/WEB-INF/views/info.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2VgngQ0J01Rvyro9QSKVEK6iJ5q" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
+      <setting name="path" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$" />
+      <setting name="debug" value="false" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BlogApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="blog.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.blog.BlogApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0069ddb0-72a5-41ce-8ed7-9e09e1ba5e31" name="Changes" comment="" />
+      <created>1695266702344</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1695266702344</updated>
+      <workItem from="1695266703691" duration="225000" />
+      <workItem from="1695266942620" duration="749000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -50,6 +50,7 @@ public class RestBlogController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+
     @GetMapping("/ajax/search")
     public ResponseEntity<Page<Blog>> searchPage(@RequestParam String searchName, @RequestParam int page) {
         Pageable pageable = PageRequest.of(page, 3);

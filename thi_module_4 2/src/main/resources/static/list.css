@@ -1,0 +1,14 @@
+*{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background: black;
+}
+button a{
+    text-decoration: none;
+    color: white;
+}
+.card{
+    margin: 0 auto;
+}

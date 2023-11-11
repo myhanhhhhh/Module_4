@@ -1,4 +1,4 @@
-package com.example.blog.model;
+package com.example.demo.model;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -40,4 +40,5 @@ public class Category {
     public void setName(String name) {
         this.name = name;
     }
+
 }

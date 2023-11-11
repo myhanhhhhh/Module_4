@@ -7,22 +7,26 @@ public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String  name;
+    private String name;
     @Column(columnDefinition = "text")
     private String content;
+
+//    @ManyToOne
+//    @JoinColumn(name = "author_id", referencedColumnName = "id")
+//    private Author author;
 
     public Blog() {
     }
 
-    public Blog(String name, String description) {
+    public Blog(String name, String content) {
         this.name = name;
-        this.content = description;
+        this.content = content;
     }
 
-    public Blog(int id, String name, String description) {
+    public Blog(int id, String name, String content) {
         this.id = id;
         this.name = name;
-        this.content = description;
+        this.content = content;
     }
 
     public int getId() {

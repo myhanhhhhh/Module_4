@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+<h1 style="text-align: center">Thêm mới heo</h1>
+
+<div style="width: 80%; margin-left: auto; margin-right: auto">
+    <div style="margin: 5%">
+        <form th:action="@{/news/add}" method="post">
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="validationCustom01" class="form-label">Tieu de </label>
+                    <input type="text" class="form-control" id="validationCustom01"
+                           aria-describedby="validationCustom011" >
+                    <div id="validationCustom011" class="form-text" style="color: red"> ##</div>
+                </div>
+                <div class="mb-3">
+                    <label for="dateIn1" class="form-label"> </label>
+                    <input type="date" class="form-control" id="dateIn1" >
+                    <div id="validationCustom0111" class="form-text" style="color: red"></div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="dateIn1" class="form-label"> </label>
+                    <input type="number" class="form-control" id="dateIn2" >
+                    <div id="validationCustom01111" class="form-text" style="color: red"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="validationCustom02" class="form-label"></label>
+                    <input type="date" class="form-control" id="validationCustom02"
+                           aria-describedby="validationCustom022" >
+                    <div id="validationCustom022" class="form-text" style="color: red"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="validationCustom02" class="form-label"></label>
+                    <input type="text" class="form-control" id="validationCustom03"
+                           aria-describedby="validationCustom022" >
+                    <div id="validationCustom033" class="form-text" style="color: red"></div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="origin1" class="form-label"> </label>
+                <select class="form-select" id="origin1" aria-label="Default select example" >
+                    <option></option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="origin1" class="form-label"> </label>
+                <select class="form-select" id="origin2" aria-label="Default select example">
+                    <option></option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <a style="margin: 1%" class="btn btn-primary">Trở về</a>
+                <button type="submit" style="margin: 1%" class="btn btn-primary">Lưu</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+</html>
